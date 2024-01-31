@@ -1,3 +1,6 @@
+# Implementations of the ViT models described in articles by A. Dosovitskiy et al. (ViT in the code) and S. Lee, S. Lee, and B. C. Song (ViT_small in the code).
+# See README for article references
+
 from math import sqrt
 from einops import rearrange, repeat, pack
 import torch
