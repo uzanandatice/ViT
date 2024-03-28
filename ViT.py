@@ -177,9 +177,7 @@ class ViT(nn.Module):
         cls_tokens = repeat(self.cls_token, '() n d -> b n d', b = b)
         x, _ = pack([cls_tokens, x], 'b * d')
         x += self.pos_embedding
-        x = self.dropout(x)
-
-        x = self.transformer(x)
+        x = self.dropout(self.transformer(x))
 
         return self.classifier_head(x[:, 0])
         
@@ -217,9 +215,7 @@ class ViT_small(nn.Module):
         cls_tokens = repeat(self.cls_token, '() n d -> b n d', b = b)
         x, _ = pack([cls_tokens, x], 'b * d')
         x += self.pos_embedding
-        x = self.dropout(x)
-
-        x = self.transformer(x)
+        x = self.dropout(self.transformer(x))
 
         return self.classifier_head(x[:, 0])
     
